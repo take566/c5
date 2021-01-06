@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Example Package 0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-24 08:56+0900\n"
+"PO-Revision-Date: 2016-12-25 09:40+0900\n"
+"Last-Translator: Joe <joe@example.com>\n"
+"Language-Team: \n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: t;t2:1,2;tc:1c,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-SearchPath-0: ../../..\n"
+
+#: ../../../blocks/autonav/templates/theme_globalnavi.php:167
+msgid "Empty Auto-Nav Block."
+msgstr "空のオートナビブロック"
+
+#: ../../../blocks/content/templates/about_comment_right.php:5
+#: ../../../blocks/content/templates/about_contact_comment.php:5
+#: ../../../blocks/content/templates/about_map_box.php:5
+#: ../../../blocks/content/templates/abuout_comment_right_comment.php:5
+#: ../../../blocks/content/templates/copy_right.php:5
+#: ../../../blocks/content/templates/diary_comment.php:5
+#: ../../../blocks/content/templates/footer_title.php:5
+#: ../../../blocks/content/templates/link_btn.php:5
+#: ../../../blocks/content/templates/no_parallax_up_down_subtitle.php:5
+#: ../../../blocks/content/templates/product_comment.php:5
+#: ../../../blocks/content/templates/top_tilte.php:5
+msgid "Empty Content Block."
+msgstr "空の記事ブロック"
+
+#: ../../../blocks/date_navigation/templates/date.php:16
+msgid "All"
+msgstr "すべて"
+
+#: ../../../blocks/date_navigation/templates/date.php:37
+msgid "None."
+msgstr "なし"
+
+#: ../../../blocks/form/templates/contact_form.php:93
+msgid "Required"
+msgstr "必須"
+
+#: ../../../blocks/google_map/templates/google_map.php:5
+msgid "Google Map disabled in edit mode."
+msgstr "Googleマップは、編集モードでは表示されません。"
+
+#: ../../../blocks/google_map/templates/google_map.php:10
+msgid "View this map in a new window"
+msgstr "大きい地図でみる"
+
+#: ../../../blocks/image/templates/about_contact_image.php:36
+#: ../../../blocks/image/templates/about_images_left.php:36
+#: ../../../blocks/image/templates/header_image.php:36
+#: ../../../blocks/image/templates/title_logo.php:36
+msgid "Empty Image Block."
+msgstr "空の画像のブロック"
+
+#: ../../../blocks/image_slider/templates/slider.php:6
+msgid "Image Slider disabled in edit mode."
+msgstr "画像スライダー編集モードでは表示されません。"
+
+#: ../../../blocks/image_slider/templates/slider.php:63
+msgid "No Slides Entered."
+msgstr "スライドがありません。"
+
+#: ../../../blocks/page_attribute_display/templates/product_page_link_url.php:8
+msgid "buy come here"
+msgstr "購入はこちらへ"
+
+#: ../../../blocks/page_attribute_display/templates/product_page_sample_url.php:8
+msgid "sample music come here"
+msgstr "視聴はこちらへ"
+
+#: ../../../blocks/page_list/templates/blog.php:9
+#: ../../../blocks/page_list/templates/blog_detail.php:9
+#: ../../../blocks/page_list/templates/product_detail.php:9
+#: ../../../blocks/page_list/templates/related.php:80
+#: ../../../blocks/page_list/templates/schedule_effect.php:9
+msgid "Empty Page List Block."
+msgstr "空のページリストブロック"
+
+#: ../../../blocks/topic_list/templates/blog_topic_genre.php:46
+#: ../../../blocks/topic_list/templates/product_topic.php:44
+msgid "No topics."
+msgstr "トピックスがありません。"
+
+# Don't change this, please use same words with concrete5 core translation. see www.transifex.com/projects/p/concrete5/
+#: ../../../controller.php:12 ../../../elements/dashboard/install.php:1
+msgid "Access Denied."
+msgstr "アクセス拒否"
+
+#: ../../../controller.php:29
+msgid ""
+"This theme employs a lot of functions that concrete5 assumes basics."
+"Furthermore, I devise the list of pages.\n"
+"            I think that I can customize this theme more freely if I "
+"understand Html&CSS.\n"
+"            I recommend that I use the theme to release next if I do not "
+"understand Html&CSS without using this theme."
+msgstr ""
+"このテーマはconcrete5が基本としている機能をたくさん使っています。\n"
+"さらにページリストも一工夫しています。\n"
+"Html&CSSを理解しているなら、このテーマをさらに自由にカスタマイズができると思"
+"います。\n"
+"Html&CSSを理解していないなら、このテーマを使わず次にリリースするテーマを使う"
+"ことをオススメします。"
+
+#: ../../../controller.php:37
+msgid "hey_dj"
+msgstr "HEY DJ"
+
+#: ../../../elements/dashboard/install.php:4
+msgid ""
+"<strong>Attention!</strong> Clearing your site's content prior to installing "
+"this theme is highly recommended."
+msgstr ""
+"<strong>注意!</strong>このテーマをインストールする前に、サイトのコンテンツを"
+"\"\n"
+"\"クリアすることをお勧めします。"
+
+#: ../../../themes/hey_dj/page_theme.php:16
+msgid "hey dj"
+msgstr "HEY DJ"
+
+#: ../../../themes/hey_dj/page_theme.php:19
+msgid ""
+"I made this theme for the purpose of a corporate site.This theme uses the "
+"Bootstrap framework.It becomes multi-device, Responsive.Because I make it in "
+"7.5.6 for concrete5, the customization is possible in 7.5.6."
+msgstr ""
+"コーポレートサイトに使えるテーマとしてつくりました。このテーマはブートスト"
+"ラップのフレームワークをつかっています。マルチデバイス対応です。concrete5 "
+"ver 5.7.5.6でつくりました。"
+
+#: ../../../themes/hey_dj/view.php:9
+msgid "404 Error"
+msgstr "404エラー"
+
+#: ../../../themes/hey_dj/view.php:10
+msgid "Page not found."
+msgstr "ページが見つかりません。"
