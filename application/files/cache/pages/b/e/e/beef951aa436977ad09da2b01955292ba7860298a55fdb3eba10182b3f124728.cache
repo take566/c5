@@ -1,0 +1,122 @@
+O:40:"Concrete\Core\Cache\Page\PageCacheRecord":5:{s:7:"expires";i:1613050747;s:14:"cacheRecordKey";s:11:"localhost!1";s:7:"headers";a:3:{s:6:"Pragma";s:6:"public";s:13:"Cache-Control";s:28:"max-age=21600,s-maxage=21600";s:7:"Expires";s:29:"Thu, 11 Feb 2021 13:39:07 GMT";}s:3:"url";s:0:"";s:7:"content";s:5378:"<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/updates/concrete5-8.5.4/concrete/themes/elemental/css/bootstrap-modified.css">
+    <link href="/application/files/cache/css/elemental/main.css?ts=1613010659" rel="stylesheet" type="text/css" media="all">    
+<title>Home :: take make factry</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="concrete5 - 8.5.4"/>
+<link rel="canonical" href="http://localhost/">
+<script type="text/javascript">
+    var CCM_DISPATCHER_FILENAME = "/index.php";
+    var CCM_CID = 1;
+    var CCM_EDIT_MODE = false;
+    var CCM_ARRANGE_MODE = false;
+    var CCM_IMAGE_PATH = "/updates/concrete5-8.5.4/concrete/images";
+    var CCM_TOOLS_PATH = "/index.php/tools/required";
+    var CCM_APPLICATION_URL = "http://localhost";
+    var CCM_REL = "";
+    var CCM_ACTIVE_LOCALE = "ja_JP";
+</script>
+
+<link href="/updates/concrete5-8.5.4/concrete/css/font-awesome.css?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9" rel="stylesheet" type="text/css" media="all">
+<script type="text/javascript" src="/updates/concrete5-8.5.4/concrete/js/jquery.js?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9"></script>
+<!--[if lt IE 9]><script type="text/javascript" src="/updates/concrete5-8.5.4/concrete/js/ie/html5-shiv.js?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9"></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="/updates/concrete5-8.5.4/concrete/js/ie/respond.js?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9"></script><![endif]-->
+<link href="/application/files/cache/css/b097361f33c3cc9fcb674549df874da0ce736463.css?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9" rel="stylesheet" type="text/css" media="all" data-source="/updates/concrete5-8.5.4/concrete/blocks/autonav/templates/responsive_header_navigation/view.css?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9 /updates/concrete5-8.5.4/concrete/blocks/search/view.css?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5931865-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5931865-1');
+</script>
+<meta name="msvalidate.01" content="0DC2D5315C91D5CB5BBE194D50136AA3" />    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement('style');
+            msViewportStyle.appendChild(
+                document.createTextNode(
+                    '@-ms-viewport{width:auto!important}'
+                )
+            );
+            document.querySelector('head').appendChild(msViewportStyle);
+        }
+    </script>
+</head>
+<body>
+
+<div class="ccm-page ccm-page-id-1 page-template-full">
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-xs-6">
+                            </div>
+            <div class="col-sm-5 col-xs-6">
+                
+
+    
+<nav class="ccm-responsive-navigation original"><ul><li class=""><a href="http://localhost/Document" target="_self" class="">資料</a></li></ul></nav><div class="ccm-responsive-menu-launch"><i></i></div>
+            </div>
+                            <div class="col-sm-3 col-xs-12">
+                    
+
+        <form action="http://localhost/search" method="get" class="ccm-search-block-form"><input name="search_paths[]" type="hidden"
+             value="" /><input name="query" type="text" value=""
+         class="ccm-search-block-text" />
+
+</form>
+                </div>
+                        </div>
+    </div>
+</header>
+
+<main>
+    <div
+class="ccm-custom-style-pagefooter area-content-accent"
+>
+</div></main>
+
+
+<footer id="footer-theme">
+    
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                                    </div>
+                <div class="col-sm-3">
+                                    </div>
+                <div class="col-sm-3">
+                                    </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<footer id="concrete5-brand">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <span>Built with <a href="http://www.concrete5.org" class="concrete5" rel="nofollow">concrete5</a> CMS.</span>
+                <span class="pull-right">
+                    <a href="http://localhost/login">ログイン</a>                </span>
+                <span id="ccm-account-menu-container"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</div>
+
+<script type="text/javascript" src="/application/files/cache/js/6a7073e587a27f3100f341bc4bf022df27c0e5bb.js?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9" data-source="/updates/concrete5-8.5.4/concrete/js/picturefill.js?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9 /updates/concrete5-8.5.4/concrete/blocks/autonav/templates/responsive_header_navigation/view.js?ccm_nocache=d846f33d9148b37e63b22ff9a7339155be77a7f9"></script>
+
+</body>
+</html>
+";}

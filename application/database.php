@@ -16,12 +16,12 @@ return [
     'connections' => [
         'concrete' => [
             'driver' => 'c5_pdo_mysql',
-            'server' => 'loalhost',
+            'server' => 'localhost',
             'database' => 'c5',
             'username' => 'c5',
             'password' => 'asdf1242',
-            'character_set' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'character_set' => 'utf8',
+            #'collation' => 'utf8mb4_unicode_ci',
         ],
     ],
 ];
