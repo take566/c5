@@ -1,0 +1,152 @@
+/* ========================================
+Mobile Nav
+======================================== */
+
+.ccm-page {
+    .mobile-nav-toggle {
+        display: none;
+    }
+
+    @media (@breakpoint-large) {
+        .mobile-nav-toggle {
+            position: relative;
+            z-index: 200;
+            display: block;
+            overflow: hidden;
+            width: 30px !important;
+            border: none;
+            border-radius: none;
+            background-color: transparent;
+            box-shadow: none;
+            margin-right: 13px;
+            cursor: pointer;
+            &:focus {
+                outline: 0;
+            }
+            & span {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                left: 0;
+                display: block;
+                height: 2px;
+                background: @nav-text-color;
+                transition: background 0s 0.3s;
+                transform: translateY(-50%);
+                &:before, &:after {
+                    position: absolute;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background-color: @nav-text-color;
+                    content: "";
+                    transition-delay: 0.3s, 0s;
+                    transition-duration: 0.3s, 0.3s;
+                }
+                &:before {
+                    top: -10px;
+                    transition-property: top, transform;
+                }
+                &:after {
+                    bottom: -10px;
+                    transition-property: bottom, transform;
+                }
+            }
+            &__is-active span {
+                background: none;
+                &:before {
+                    top: 0;
+                    transition-delay: 0s, 0.3s;
+                    transform: rotate(45deg);
+                }
+                &:after {
+                    bottom: 0;
+                    transition-delay: 0s, 0.3s;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        .primary-header--resized .mobile-nav-toggle {
+            & span {
+                background: @nav-text-scroll-color;
+                &:before, &:after {
+                    background-color: @nav-text-scroll-color;
+                }
+            }
+            &__is-active span {
+                background: none;
+            }
+        }
+
+        .mobile-nav {
+            position: fixed;
+            display: block;
+            left: -100%;
+            float: left;
+            overflow: auto;
+            width: 50%;
+            height: 100%;
+            background-color: @mobile-nav-background-color;
+            box-shadow: 0px 0px 20px 0px rgba(48,48,48,0.58);
+            z-index: 200;
+            .transition(700ms, left, ease-in-out);
+            .has-submenu--mobile a {
+                z-index: -1;
+            }
+            .nav {
+                position: relative;
+                float: left;
+                padding: 0 30px 0 30px;
+                width: 100%;
+                margin-top: 100px;
+                margin-left: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            .nav-item {
+                float: left;
+                clear: both;
+                width: 100%;
+                line-height: 50px;
+                border-bottom: 1px solid @mobile-nav-divider-color;
+                a {
+                    color: @mobile-nav-text-color;
+                    font-size: @mob-nav-text-type-font-size;
+                    font-weight: @mob-nav-text-type-font-weight;
+                    font-family: @mob-nav-text-type-font-family;
+                    text-transform: @mob-nav-text-type-text-transform;
+                    margin-left: 1rem;
+                }
+            }
+            .is-megamenu [class*="column-"] {
+                clear: both;
+                width: 100%;
+            }
+            .is-megamenu .is-submenu {
+                position: relative;
+                float: left;
+            }
+            .is-submenu, .is-megamenu {
+                overflow: hidden;
+                max-height: 0px;
+                transition: max-height 750ms ease-in-out;
+                li {
+                    a {
+                        font-size: 1rem;
+                        color: @mobile-nav-dropdown-text-color;
+                    }
+                }
+            }
+            .submenu-open > .is-submenu,
+            .submenu-open > .is-megamenu .is-submenu,
+            .submenu-open > .is-megamenu{
+                max-height: 2000px;
+            }
+        }
+        .mobile-nav-slide-in {
+            left: 0;
+        }
+    }
+}

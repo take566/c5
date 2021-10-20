@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+    <table name="btVidalThemesQuoteSlider">
+        <field name="bID" type="I">
+            <key/>
+            <unsigned/>
+        </field>
+        <field name="slideDuration" type="C" size="255"></field>
+    </table>
+    <table name="btVidalThemesQuoteSliderTestimonialSliderEntries">
+        <field name="id" type="I">
+            <key/>
+            <unsigned/>
+            <autoincrement/>
+        </field>
+        <field name="bID" type="I">
+            <unsigned/>
+        </field>
+        <field name="sortOrder" type="I"></field>
+        <field name="testimonailName" type="C" size="255"></field>
+        <field name="testimonialPosition" type="C" size="255"></field>
+        <field name="testimonialCompany" type="C" size="255"></field>
+        <field name="testimonailUrl" type="C"></field>
+        <field name="testimonailUrl_text" type="C"></field>
+        <field name="testimonialQuote" type="X2"></field>
+        <field name="testimonialImage" type="I">
+            <default value="0"/>
+            <unsigned/>
+        </field>
+    </table>
+</schema>

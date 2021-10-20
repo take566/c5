@@ -1,0 +1,111 @@
+/* ========================================
+Blog
+======================================== */
+
+.ccm-page {
+    .masonry-blog {
+        &-title {
+            width: 100%;
+            float: left;
+            clear: both;
+            margin: 20px 0 20px;
+            font-size: 1.4rem;
+        }
+        &-date {
+            width: 100%;
+            float: left;
+            clear: both;
+            color: #303030;
+            font-size: 12px;
+            font-weight: 400;
+            border-top: 1px solid #efefef;
+            border-bottom: 1px solid #efefef;
+            padding: 5px 0 5px 0;
+        }
+    }
+    .blog-teaser {
+        float: left;
+        clear: both;
+        width: 100%;
+        &__image {
+            float: left;
+        }
+        &__meta {
+            &:extend(.blog-teaser);
+            &-list {
+                margin-left: 0;
+                padding: 0;
+                &-item {
+                    display: inline;
+                    margin-right: 20px;
+                    list-style-type: none;
+                    i {
+                        font-size: 20px;
+                        color: #303030;
+                    }
+                }
+            }
+        }
+        &__description {
+            &:extend(.blog-teaser);
+        }
+        &__read-more {
+            &:extend(.blog-teaser);
+        }
+    }
+
+    .blog-comment {
+        position: relative;
+        float: left;
+        margin-bottom: 50px;
+        &__avatar {
+            position: absolute;
+            float: left;
+            width: 120px;
+            height: 120px;
+        }
+        &__meta {
+            float: left;
+            margin-left: 120px;
+            padding-left: 20px;
+            &-name {
+                margin-bottom: 5px;
+            }
+            &-date {
+                font-size: 0.8rem;
+            }
+        }
+        &__comment-text {
+            &:extend(.blog-comment__meta);
+        }
+        &__reply-link {
+            color: #303030;
+            text-decoration: none;
+            .transition(350ms, color);
+            &:hover {
+                color: #909090;
+            }
+        }
+        &--reply {
+            margin-left: 140px;
+        }
+    }
+    .comments-form {
+        float: left;
+        width: 100%;
+    }
+    @media (@breakpoint-small) {
+        .blog-comment {
+            &--reply {
+                margin-left: 0;
+            }
+            &__avatar {
+                width: 80px;
+                height: 80px;
+            }
+            &__comment-text, &__meta {
+                margin-left: 80px;
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+/* ========================================
+Calendar
+======================================== */
+
+.ccm-page {
+    .modena-calendar {
+        .fc {
+            &-day-number {
+                padding: 10px;
+            }
+            &-day-header {
+                padding: 10px;
+            }
+            &-today {
+                background-color: @today-background-color;
+            }
+            &-center h2 {
+                font-size: 2.6em;
+            }
+            &-day-grid-event {
+                background-color: @event-background-color !important;
+                border-color: @event-background-color !important;
+                color: @event-text-color !important;
+                padding: 6px;
+            }
+            &-widget-header thead:first-of-type {
+                background-color: @day-header-background-color;
+                color: @day-header-text-color;
+            }
+            &-button {
+                background-color: @calendar-buttons-color;
+                background-image: none;
+                color: @calendar-buttons-text-color;
+                box-shadow: none;
+                text-shadow: none;
+                transition: all 350ms ease-in-out;
+                &:hover:not(.fc-state-disabled) {
+                    background-color: @calendar-buttons-hover-color;
+                    color: @calendar-buttons-text-hover-color;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            &-state-disabled {
+                background-color: #efefef;
+                color: #303030;
+            }
+        }
+    }
+}
+
+.mfp {
+    &-content {
+        opacity: 0;
+        .ccm-block-calendar-dialog-event-time:before {
+            content: "\f2d1";
+            font-family: "Ionicons";
+            margin-right: 8px;
+            font-size: 22px;
+            position: relative;
+            bottom: -2px;
+        }
+        .ccm-block-calendar-dialog-event-time {
+            border-top: 1px solid #efefef;
+            border-bottom: 1px solid #efefef;
+        }
+        .btn {
+            text-decoration: none;
+            color: inherit;
+            &:after {
+                content: "\f3d3";
+                font-family: "Ionicons";
+                margin-left: 8px;
+                font-size: 20px;
+                position: relative;
+                bottom: -2px;
+            }
+        }
+    }
+    &-s-ready .mfp-content {
+        opacity: 1;
+        transition: opacity 400ms ease-in-out;
+    }
+    &-content .ccm-block-calendar-event-dialog-details {
+        box-shadow: 0px 0px 24px -4px rgba(0,0,0,0.60);
+    }
+}

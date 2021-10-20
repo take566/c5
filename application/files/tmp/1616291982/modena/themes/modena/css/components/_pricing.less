@@ -1,0 +1,42 @@
+/* ========================================
+Pricing
+======================================== */
+
+.ccm-page {
+    .pricing-column {
+        padding-right: 0px;
+        padding-left: 0px;
+        border-width: 1px;
+        border: 1px solid @price-column-border-color;
+        text-align: center;
+        &__header, &__footer {
+            padding: 30px;
+            h5 {
+                color: @column-heading-color;
+            }
+        }
+        &__price {
+            background-color: @price-background-color;
+            padding: 20px;
+            color: @price-text-color;
+        }
+        &__price-amount {
+            font-weight: 400;
+            font-size: 1.8rem;
+        }
+        &--recommended {
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+            padding: 0;
+            .pricing-column__price {
+                background-color: @price-background-reco-color;
+                color: @price-text-reco-color;
+            }
+        }
+    }
+    @media (@breakpoint-large) {
+        .pricing-column--recommended {
+            transform: scale(1);
+        }
+    }
+}

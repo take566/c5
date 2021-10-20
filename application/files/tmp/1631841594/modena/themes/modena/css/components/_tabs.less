@@ -1,0 +1,81 @@
+/* ========================================
+Tabs
+======================================== */
+
+.ccm-page {
+    .list-item--tabs {
+        padding: 10px 20px 10px;
+        cursor: pointer;
+        .transition(350ms, background-color);
+        &:hover {
+            background-color: @tab-hover-background-color;
+            color: @tab-text-hover-color;
+        }
+    }
+    .tabs {
+        margin-bottom: @text-margin-bottom;
+        &__content {
+            overflow: hidden;
+            height: 0;
+            opacity: 0;
+            -webkit-transition-duration: 900ms;
+            transition-duration: 900ms;
+            -webkit-transition-property: opacity;
+            transition-property: opacity;
+        }
+    }
+    .current-content-tab {
+        display: block;
+        padding: 15px 0 15px;
+        height: auto;
+        border-top: 1px solid #e5e6eb;
+        opacity: 1;
+    }
+    .current-list-tab {
+        background-color: @tab-background-color;
+        color: @tab-text-color;
+        border-bottom: 1px solid #303030;
+        margin-bottom: -1px;
+        &:hover {
+            background-color: @tab-active-hover-background-color;
+            color: @tab-text-hover-color;
+        }
+    }
+    .tabs__style-2 {
+        .list {
+            background-color: #f6f8fb;
+        }
+        .list-item--tabs {
+            padding: 10px 20px 10px;
+            cursor: pointer;
+            .transition(350ms, background-color);
+            &:hover {
+                background-color: #303030;
+                color: #ffffff;
+            }
+        }
+        .tabs__content-side-borders {
+            border-left: 1px solid #e5e6eb;
+            border-right: 1px solid #e5e6eb;
+            padding: 0 15px 0;
+
+        }
+        .current-content-tab {
+            display: block;
+            padding: 15px 0 15px;
+            height: auto;
+            border-top: 1px solid #e5e6eb;
+            opacity: 1;
+        }
+        .current-list-tab {
+            background-color: #303030;
+            color: #ffffff;
+            border-bottom: 1px solid #e5e6eb;
+            margin-bottom: -1px;
+            &:hover {
+                background-color: #ffffff;
+                color: #303030;
+            }
+        }
+    }
+}

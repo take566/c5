@@ -1,0 +1,65 @@
+/* ========================================
+Isotope
+======================================== */
+
+.ccm-page {
+    .isotope-items {
+        overflow: hidden;
+        width: auto;
+    }
+
+    .isotope-sizer {
+        width: 33.3333333333%;
+    }
+
+    .isotope-width (@index) when (@index > 0) {
+        .isotope-width-@{index} {
+            width: @grid-width / @grid-columns * @index;
+        }
+        .isotope-width(@index - 1);
+    }
+    .isotope-width (0) {}
+    .isotope-width (@grid-columns);
+    .isotope-item {
+        float: left;
+        height: auto;
+        &.no-margin {
+            border: 0 !important;
+        }
+    }
+
+    .isotope-filters-button, .isotope-filters-button--masonry {
+        display: inline-block;
+        margin: 20px 12px 10px;
+        cursor: pointer;
+        transition: all 500ms ease-in-out;
+        border-bottom: 1px solid transparent;
+        color: @filter-text-color;
+        &:hover {
+            border-bottom: 1px solid @filter-hover-underline-color;
+        }
+        &__selected, &__selected--masonry {
+            background-color: @filter-active-background-color;
+            border-bottom: 1px solid @filter-hover-underline-color;
+        }
+    }
+
+    .isotope-filters-divider {
+        color: #303030;
+        &:last-of-type {
+            display: none;
+        }
+    }
+
+    @media (@breakpoint-large) {
+        .isotope-item {
+            width: 50%;
+        }
+    }
+
+    @media (@breakpoint-small) {
+        .isotope-item {
+            width: 100%;
+        }
+    }
+}

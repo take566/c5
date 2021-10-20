@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+    <table name="btVidalThemesSlider">
+        <field name="bID" type="I">
+            <key/>
+            <unsigned/>
+        </field>
+        <field name="slideDirection" type="C"></field>
+        <field name="pauseOnHover" type="C" size="1">
+            <unsigned/>
+        </field>
+        <field name="arrowNavigation" type="C" size="1">
+            <unsigned/>
+        </field>
+        <field name="navigationPager" type="C" size="1">
+            <unsigned/>
+        </field>
+        <field name="slideDuration" type="C" size="255"></field>
+    </table>
+    <table name="btVidalThemesSliderSlideEntries">
+        <field name="id" type="I">
+            <key/>
+            <unsigned/>
+            <autoincrement/>
+        </field>
+        <field name="bID" type="I">
+            <unsigned/>
+        </field>
+        <field name="sortOrder" type="I"></field>
+        <field name="slideImage" type="I">
+            <default value="0"/>
+            <unsigned/>
+        </field>
+        <field name="captionHeading" type="C" size="255"></field>
+        <field name="CaptionContent" type="X2"></field>
+        <field name="captionHeadingAnimation" type="C"></field>
+        <field name="captionContentAnimation" type="C"></field>
+        <field name="linkPicker" type="C"></field>
+        <field name="buttonUrl" type="I"></field>
+        <field name="buttonUrl_text" type="C"></field>
+        <field name="externalUrl" type="C"></field>
+        <field name="externalUrl_text" type="C"></field>
+        <field name="buttonType" type="C"></field>
+        <field name="buttonColors" type="C"></field>
+        <field name="buttonRadius" type="C"></field>
+        <field name="buttonPosition" type="C"></field>
+        <field name="buttonAnimation" type="C"></field>
+        <field name="buttonIcons" type="C" size="100"></field>
+    </table>
+</schema>

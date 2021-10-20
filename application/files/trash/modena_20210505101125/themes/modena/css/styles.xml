@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<styles version="1.0">
+    <set name="Typography">
+        <style name="Body text" variable="body-text" type="type" />
+        <style name="H1 heading" variable="h1-text" type="type" />
+        <style name="H2 heading" variable="h2-text" type="type" />
+        <style name="H3 heading" variable="h3-text" type="type" />
+        <style name="H4 heading" variable="h4-text" type="type" />
+        <style name="H5 heading" variable="h5-text" type="type" />
+        <style name="H6 heading" variable="h6-text" type="type" />
+        <style name="Navigation" variable="nav-text" type="type" />
+        <style name="Mobile navigation" variable="mob-nav-text" type="type" />
+
+        <style name="Link text" variable="link" type="color" />
+        <style name="Link text on hover" variable="link-hover" type="color" />
+
+        <style name="Heading link" variable="heading-link" type="color" />
+        <style name="Heading link on hover" variable="heading-link-hover" type="color" />
+
+        <style name="Footer text" variable="footer-text" type="color" />
+        <style name="Footer heading" variable="footer-heading" type="color" />
+
+        <style name="Footer link text" variable="footer-link" type="color" />
+        <style name="Footer link text on hover" variable="footer-link-hover" type="color" />
+
+        <style name="Footer heading link" variable="footer-heading-link" type="color" />
+        <style name="Footer heading link on hover" variable="footer-heading-link-hover" type="color" />
+
+        <style name="Heading underline 1" variable="heading-underline-1" type="color" />
+        <style name="Heading underline 2" variable="heading-underline-2" type="color" />
+    </set>
+    <set name="Main site">
+        <style name="Background" variable="body-background" type="color" />
+    </set>
+    <set name="Pre-loader">
+        <style name="Background" variable="preloader-background" type="color" />
+        <style name="Spinner" variable="preloader-spinner" type="color" />
+    </set>
+    <set name="Header">
+        <style name="Background" variable="header-background" type="color" />
+        <style name="Background (on scroll)" variable="resize-header-background" type="color" />
+        <style name="Border" variable="header-border" type="color" />
+        <style name="Border (on scroll)" variable="resize-header-border" type="color" />
+        <style name="Bottom shadow" variable="header-shadow" type="color" />
+        <style name="Search icon divider" variable="search-icon-divider" type="color" />
+        <style name="Heading" variable="header-heading" type="color" />
+        <style name="Heading hover" variable="header-heading-hover" type="color" />
+    </set>
+    <set name="Sub-page header">
+        <style name="Background" variable="sub-page-header-background" type="color" />
+        <style name="Background (on scroll)" variable="sub-page-resize-header-background" type="color" />
+        <style name="Border" variable="sub-page-header-border" type="color" />
+        <style name="Border (on scroll)" variable="sub-page-resize-header-border" type="color" />
+        <style name="Bottom shadow" variable="sub-page-header-shadow" type="color" />
+        <style name="Search icon divider" variable="sub-page-search-icon-divider" type="color" />
+        <style name="Heading" variable="sub-page-header-heading" type="color" />
+        <style name="Heading hover" variable="sub-page-header-heading-hover" type="color" />
+    </set>
+    <set name="Sub-page hero unit">
+        <style name="Background" variable="sub-hero-background" type="color" />
+        <style name="Page name" variable="sub-hero-text" type="color" />
+        <style name="Page description" variable="sub-hero-description" type="color" />
+        <style name="Page hash tag" variable="sub-hero-hash" type="color" />
+    </set>
+    <set name="Footer">
+        <style name="Bottom border" variable="footer-border" type="color" />
+        <style name="Background" variable="footer-background" type="color" />
+    </set>
+    <set name="Desktop navigation">
+        <style name="Text" variable="nav-text" type="color" />
+        <style name="Text hover" variable="nav-text-hover" type="color" />
+        <style name="Dropdown text" variable="dropdown-text" type="color" />
+        <style name="Dropdown text hover" variable="dropdown-text-hover" type="color" />
+        <style name="Dropdown background" variable="dropdown-background" type="color" />
+
+        <style name="Text on scroll" variable="nav-text-scroll" type="color" />
+        <style name="Text on scroll hover" variable="nav-text-scroll-hover" type="color" />
+
+        <style name="Active marker" variable="active-state" type="color" />
+        <style name="Active marker on scroll" variable="active-state-scroll" type="color" />
+        <style name="Active text" variable="active-text" type="color" />
+        <style name="Active text on scroll" variable="active-text-scroll" type="color" />
+    </set>
+    <set name="Mobile navigation">
+        <style name="Background" variable="mobile-nav-background" type="color" />
+        <style name="Text" variable="mobile-nav-text" type="color" />
+        <style name="Dropdown text" variable="mobile-nav-dropdown-text" type="color" />
+        <style name="Divider" variable="mobile-nav-divider" type="color" />
+    </set>
+    <set name="Sub-page desktop navigation">
+        <style name="Text" variable="sub-page-nav-text" type="color" />
+        <style name="Text hover" variable="sub-page-nav-text-hover" type="color" />
+        <style name="Dropdown text" variable="sub-page-dropdown-text" type="color" />
+        <style name="Dropdown text hover" variable="sub-page-dropdown-text-hover" type="color" />
+        <style name="Dropdown background" variable="sub-page-dropdown-background" type="color" />
+
+        <style name="Text on scroll" variable="sub-page-nav-text-scroll" type="color" />
+        <style name="Text on scroll hover" variable="sub-page-nav-text-scroll-hover" type="color" />
+
+        <style name="Active marker" variable="subpage-active-state" type="color" />
+        <style name="Active marker on scroll" variable="subpage-active-state-scroll" type="color" />
+        <style name="Active text" variable="subpage-active-text" type="color" />
+        <style name="Active text on scroll" variable="subpage-active-text-scroll" type="color" />
+    </set>
+    <set name="Sidebar navigation style 1">
+        <style name="Text" variable="sidebar-nav-text" type="color" />
+        <style name="Text hover" variable="sidebar-nav-text-hover" type="color" />
+        <style name="Background" variable="sidebar-nav-background" type="color" />
+        <style name="Background hover" variable="sidebar-nav-background-hover" type="color" />
+        <style name="Right border" variable="sidebar-nav-border" type="color" />
+        <style name="Right border hover" variable="sidebar-nav-border-hover" type="color" />
+    </set>
+    <set name="Sidebar navigation style 2">
+        <style name="Text" variable="sidebar-nav-text-style-2" type="color" />
+        <style name="Text hover" variable="sidebar-nav-text-style-2-hover" type="color" />
+        <style name="Border and icon" variable="sidebar-nav-style-2-border" type="color" />
+        <style name="Border and icon hover" variable="sidebar-nav-style-2-border-hover" type="color" />
+    </set>
+    <set name="Homepage hero unit">
+        <style name="Background overlay" variable="hero-background-overlay" type="color" />
+        <style name="Heading" variable="hero-heading" type="color" />
+    </set>
+    <set name="Lightbox">
+        <style name="Background" variable="lightbox-background" type="color" />
+        <style name="Close icon" variable="lightbox-close" type="color" />
+    </set>
+    <set name="Accordion">
+        <style name="Header background" variable="accordion-background" type="color" />
+        <style name="Header background Hover" variable="accordion-hover-background" type="color" />
+        <style name="Header text" variable="accordion-text" type="color" />
+        <style name="Header text hover" variable="accordion-text-hover" type="color" />
+
+        <style name="Style 2 header text" variable="alt-accordion-text" type="color" />
+        <style name="Style 2 header text hover" variable="alt-accordion-text-hover" type="color" />
+        <style name="Style 2 border" variable="alt-accordion-border" type="color" />
+    </set>
+    <set name="Back to top button">
+        <style name="Back to top button" variable="back-to-top" type="color" />
+    </set>
+    <set name="Header search bar">
+        <style name="Search background" variable="header-search-background" type="color" />
+        <style name="Search text" variable="header-search-text" type="color" />
+        <style name="Submit button text" variable="submit-button-text" type="color" />
+        <style name="Submit button text on hover" variable="submit-button-text-hover" type="color" />
+        <style name="Submit button background" variable="submit-button-background" type="color" />
+        <style name="Submit button background on hover" variable="submit-button-background-hover" type="color" />
+        <style name="Submit button border" variable="submit-button-border" type="color" />
+    </set>
+    <set name="Buttons">
+        <style name="Primary button" variable="button-background" type="color" />
+        <style name="Primary button text" variable="button-text" type="color" />
+        <style name="Primary button on hover" variable="button-background-hover" type="color" />
+        <style name="Primary button text on hover" variable="button-text-hover" type="color" />
+
+        <style name="Secondary button" variable="secondary-button-background" type="color" />
+        <style name="Secondary button text" variable="secondary-button-text" type="color" />
+        <style name="Secondary button on hover" variable="secondary-button-background-hover" type="color" />
+        <style name="Secondary button text on hover" variable="secondary-button-text-hover" type="color" />
+
+        <style name="Tertiary button" variable="tertiary-button-background" type="color" />
+        <style name="Tertiary button text" variable="tertiary-button-text" type="color" />
+        <style name="Tertiary button on hover" variable="tertiary-button-background-hover" type="color" />
+        <style name="Tertiary button text On hover" variable="tertiary-button-text-hover" type="color" />
+
+        <style name="Utility button 1" variable="utility-button-background" type="color" />
+        <style name="Utility button 1 text" variable="utility-button-text" type="color" />
+        <style name="Utility button 1 on hover" variable="utility-button-background-hover" type="color" />
+        <style name="Utility button 1 text on hover" variable="utility-button-text-hover" type="color" />
+
+        <style name="Utility button 2" variable="utility-button-2-background" type="color" />
+        <style name="Utility button 2 text" variable="utility-button-2-text" type="color" />
+        <style name="Utility button 2 on hover" variable="utility-button-2-background-hover" type="color" />
+        <style name="Utility button 2 text on hover" variable="utility-button-2-text-hover" type="color" />
+
+        <style name="Primary ghost button" variable="ghost-button-background" type="color" />
+        <style name="Primary ghost button text" variable="ghost-button-text" type="color" />
+        <style name="Primary ghost button on hover" variable="ghost-button-background-hover" type="color" />
+        <style name="Primary ghost button text on hover" variable="ghost-button-text-hover" type="color" />
+
+        <style name="Secondary ghost button" variable="secondary-ghost-button-background" type="color" />
+        <style name="Secondary ghost button text" variable="secondary-ghost-button-text" type="color" />
+        <style name="Secondary ghost button on hover" variable="secondary-ghost-button-background-hover" type="color" />
+        <style name="Secondary ghost button text on hover" variable="secondary-ghost-button-text-hover" type="color" />
+
+        <style name="Tertiary ghost button" variable="tertiary-ghost-button-background" type="color" />
+        <style name="Tertiary ghost button text" variable="tertiary-ghost-button-text" type="color" />
+        <style name="Tertiary ghost button on hover" variable="tertiary-ghost-button-background-hover" type="color" />
+        <style name="Tertiary ghost button text on hover" variable="tertiary-ghost-button-text-hover" type="color" />
+
+        <style name="Utility ghost button 1" variable="utility-ghost-button-background" type="color" />
+        <style name="Utility ghost button 1 text" variable="utility-ghost-button-text" type="color" />
+        <style name="Utility ghost button 1 on hover" variable="utility-ghost-button-background-hover" type="color" />
+        <style name="Utility ghost button 1 text on hover" variable="utility-ghost-button-text-hover" type="color" />
+
+        <style name="Utility ghost button 2" variable="utility-ghost-button-2-background" type="color" />
+        <style name="Utility ghost button 2 text" variable="utility-ghost-button-2-text" type="color" />
+        <style name="Utility ghost button 2 on hover" variable="utility-ghost-button-2-background-hover" type="color" />
+        <style name="Utility ghost button 2 text on hover" variable="utility-ghost-button-2-text-hover" type="color" />
+    </set>
+    <set name="Portfolio">
+        <style name="Filter hover underline" variable="filter-hover-underline" type="color" />
+        <style name="Filter active" variable="filter-active-background" type="color" />
+        <style name="Filter text" variable="filter-text" type="color" />
+    </set>
+    <set name="Tabs">
+        <style name="Background" variable="tab-background" type="color" />
+        <style name="Background hover" variable="tab-hover-background" type="color" />
+        <style name="Active background hover" variable="tab-active-hover-background" type="color" />
+        <style name="Text" variable="tab-text" type="color" />
+        <style name="Text hover" variable="tab-text-hover" type="color" />
+    </set>
+    <set name="Image overlays">
+        <style name="Background" variable="overlay-background" type="color" />
+        <style name="Heading" variable="overlay-heading" type="color" />
+        <style name="Link" variable="overlay-link" type="color" />
+        <style name="Link hover" variable="overlay-link-hover" type="color" />
+        <style name="Divider" variable="overlay-divider" type="color" />
+    </set>
+    <set name="Icon boxes">
+        <style name="Icon background" variable="iconbox-background" type="color" />
+        <style name="Icon" variable="iconbox-icon" type="color" />
+        <style name="Box border" variable="iconbox-border" type="color" />
+    </set>
+    <set name="Pricing tables">
+        <style name="Column heading" variable="column-heading" type="color" />
+        <style name="Price background" variable="price-background" type="color" />
+        <style name="Price recommended background" variable="price-background-reco" type="color" />
+
+        <style name="Price text" variable="price-text" type="color" />
+        <style name="Price recommended text" variable="price-text-reco" type="color" />
+
+        <style name="Price column border" variable="price-column-border" type="color" />
+    </set>
+    <set name="Sharing icons">
+        <style name="Light background" variable="sharing-light-background" type="color" />
+        <style name="Light icon" variable="sharing-light-text" type="color" />
+        <style name="Light background hover" variable="sharing-light-background-hover" type="color" />
+        <style name="Light icon hover" variable="sharing-light-text-hover" type="color" />
+
+        <style name="Dark background" variable="sharing-dark-background" type="color" />
+        <style name="Dark icon" variable="sharing-dark-text" type="color" />
+        <style name="Dark background hover" variable="sharing-dark-background-hover" type="color" />
+        <style name="Dark icon hover" variable="sharing-dark-text-hover" type="color" />
+    </set>
+    <set name="Image slider">
+        <style name="Arrow background" variable="nav-arrow-background" type="color" />
+        <style name="Arrow background Hover" variable="nav-arrow-hover-background" type="color" />
+        <style name="Arrows" variable="nav-arrow" type="color" />
+        <style name="Navigation arrows hover" variable="nav-arrow-hover" type="color" />
+
+        <style name="Pager border" variable="pager-border" type="color" />
+        <style name="Pager background" variable="pager-background" type="color" />
+
+        <style name="Slider heading" variable="slider-heading" type="color" />
+    </set>
+    <set name="Testimonial slider">
+        <style name="Name" variable="testimonial-slider-name" type="color" />
+        <style name="Company link" variable="testimonial-company-link" type="color" />
+        <style name="Company link hover" variable="testimonial-company-link-hover" type="color" />
+        <style name="Meta divider" variable="testimonial-divider" type="color" />
+        <style name="Quotes and border" variable="testimonial-quotes" type="color" />
+        <style name="Pager border and active" variable="testimonial-pager-border" type="color" />
+    </set>
+    <set name="Team profiles">
+        <style name="Name" variable="team-profile-name" type="color" />
+        <style name="Divider" variable="team-profile-divider" type="color" />
+    </set>
+    <set name="Contact form">
+        <style name="Submit button" variable="contact-submit-button" type="color" />
+        <style name="Submit button Text" variable="contact-submit-button-text" type="color" />
+
+        <style name="Submit button hover" variable="contact-submit-button-hover" type="color" />
+        <style name="Submit button text hover" variable="contact-submit-button-text-hover" type="color" />
+    </set>
+    <set name="Calendar">
+        <style name="Buttons" variable="calendar-buttons" type="color" />
+        <style name="Buttons hover" variable="calendar-buttons-hover" type="color" />
+        <style name="Buttons text" variable="calendar-buttons-text" type="color" />
+        <style name="Buttons text hover" variable="calendar-buttons-text-hover" type="color" />
+
+        <style name="Today background" variable="today-background" type="color" />
+        <style name="Event background" variable="event-background" type="color" />
+        <style name="Event text" variable="event-text" type="color" />
+        <style name="Day header background" variable="day-header-background" type="color" />
+        <style name="Day header text" variable="day-header-text" type="color" />
+    </set>
+</styles>

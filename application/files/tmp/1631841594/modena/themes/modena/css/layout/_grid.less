@@ -1,0 +1,177 @@
+/* ========================================
+Grid
+======================================== */
+
+.ccm-page {
+    .grid-container {
+        width: 100%;
+    }
+    .grid-row {
+        margin-right: auto;
+        margin-left: auto;
+        .grid-row {
+            margin-right: -15px;
+            margin-left: -15px;
+            width: auto;
+        }
+    }
+
+    .grid-container,
+    .grid-row,
+    .grid-container-fluid {
+        &:after {
+            display: table;
+            clear: both;
+            content: "";
+        }
+    }
+
+    [class*='column-'] {
+        position: relative;
+        float: left;
+        padding-right: 15px;
+        padding-left: 15px;
+        min-height: 1px;
+        width: 100%;
+    }
+
+    // Regular grid
+
+    .columns (@index) when (@index > 0) {
+        .column-@{index} {
+            width: @grid-width / @grid-columns * @index;
+        }
+        .columns(@index - 1);
+    }
+    .columns (0) {}
+    .columns (@grid-columns);
+
+    // Large breakpoint grid
+
+    @media (@breakpoint-large) {
+        .columns (@index) when (@index > 0) {
+            .column-lg-@{index} {
+                width: @grid-width / @grid-columns * @index;
+            }
+            .columns(@index - 1);
+        }
+        .columns (0) {}
+        .columns (@grid-columns);
+    }
+
+    // Push classes for grid columns
+
+    .push-columns (@index) when (@index > 0) {
+        .push-column-@{index} {
+            margin-left: @grid-width / @grid-columns * @index;
+        }
+        .push-columns(@index - 1);
+    }
+    .push-columns (0) {}
+    .push-columns (@grid-columns);
+
+    // Medium breakpoint grid, grid will collapse to 100%
+
+    @media (@breakpoint-medium) {
+        .columns (@index) when (@index > 0) {
+            .column-@{index} {
+                width: 100%;
+            }
+            .columns(@index - 1);
+        }
+        .columns (0) {}
+        .columns (@grid-columns);
+        [class*="push-column-"] {
+            margin-left: 0px;
+        }
+    }
+
+    // Override for medium grid if medium columns are not required to collapse to 100%
+
+    @media (@breakpoint-medium) {
+        .columns (@index) when (@index > 0) {
+            .column-md-@{index} {
+                width: @grid-width / @grid-columns * @index;
+            }
+            .columns(@index - 1);
+        }
+        .columns (0) {}
+        .columns (@grid-columns);
+    }
+
+    // Breakpoint small-text
+
+    @media (@breakpoint-small) {
+        .columns (@index) when (@index > 0) {
+            .column-sm-@{index} {
+                width: @grid-width / @grid-columns * @index;
+            }
+            .columns(@index - 1);
+        }
+        .columns (0) {}
+        .columns (@grid-columns);
+    }
+
+    // Breakpoint extra small-text
+
+    @media (@breakpoint-xsmall) {
+        .columns (@index) when (@index > 0) {
+            .column-xsm-@{index} {
+                width: @grid-width / @grid-columns * @index;
+            }
+            .columns(@index - 1);
+        }
+        .columns (0) {}
+        .columns (@grid-columns);
+    }
+
+    .hide- {
+        .for(desktop); .-each(@name) {
+            @media (min-width: 64em) {
+                &@{name}{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .hide- {
+        .for(large); .-each(@name) {
+            @media (min-width: 48em) and (@breakpoint-large) {
+                &@{name}{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .hide- {
+        .for(medium); .-each(@name) {
+            @media (min-width: 34em) and (@breakpoint-medium) {
+                &@{name}{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .hide- {
+        .for(small); .-each(@name) {
+            @media (min-width: 25em) and (@breakpoint-small) {
+                &@{name}{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .hide- {
+        .for(xsmall); .-each(@name) {
+            @media (min-width: 0px) and (@breakpoint-xsmall) {
+                &@{name}{
+                    display: none;
+                }
+            }
+        }
+    }
+}

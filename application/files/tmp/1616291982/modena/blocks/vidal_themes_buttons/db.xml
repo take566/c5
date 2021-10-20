@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+    <table name="btVidalThemesButtons">
+        <field name="bID" type="I">
+            <key/>
+            <unsigned/>
+        </field>
+        <field name="buttonUrl" type="I"></field>
+        <field name="buttonUrl_text" type="C"></field>
+        <field name="externalUrl" type="C"></field>
+        <field name="externalUrl_text" type="C"></field>
+        <field name="buttonPosition" type="C"></field>
+        <field name="buttonType" type="C"></field>
+        <field name="buttonColors" type="C"></field>
+        <field name="buttonRadius" type="C"></field>
+        <field name="chooseAnimation" type="C"></field>
+        <field name="animationOffset" type="C" size="255"></field>
+        <field name="animationSpeed" type="C"></field>
+        <field name="animateOnce" type="C" size="1">
+            <unsigned/>
+        </field>
+        <field name="buttonIcons" type="C" size="100"></field>
+        <field name="linkPicker" type="C"></field>
+    </table>
+</schema>

@@ -2,11 +2,106 @@
 	RewriteEngine On
 	RewriteBase /
 	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME}/index.html !-f
-	RewriteCond %{REQUEST_FILENAME}/index.php !-f
 	RewriteRule . index.php [L]
-        RewriteCond %{HTTPS} !on
-        RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+  RewriteCond %{HTTPS} !on
+  </IfModule>
+<ifModule mod_headers.c>
+    Header unset ETag
+</ifModule>
+FileETag None
+<IfModule mod_headers.c>
 </IfModule>
-SetEnvIf Request_URI ".*" WpCommentDeny
-SetEnvIf Request_URI ".*" Ngx_Cache_NoCacheMode
+<ifModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 seconds"
+  ExpiresByType text/html "access plus 1 weeks"
+  ExpiresByType text/css "access plus 1 weeks"
+  ExpiresByType text/js "access plus 1 weeks"
+  ExpiresByType text/javascript "access plus 1 weeks"  
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 weeks"
+  ExpiresByType application/pdf "access plus 1 weeks"
+  ExpiresByType application/javascript "access plus 1 weeks"  
+  ExpiresByType application/x-javascript "access plus 1 weeks"
+  ExpiresByType application/x-font-ttf "access plus 1 year"
+  ExpiresByType application/x-font-woff "access plus 1 year"
+  ExpiresByType application/x-font-opentype "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+</IfModule>
+<ifModule mod_headers.c>
+  <filesMatch "\.(ico|jpe?g|png|gif|swf)$">
+    Header set Cache-Control "public"
+  </filesMatch>
+  <filesMatch "\.(css)$">
+    Header set Cache-Control "public"
+  </filesMatch>
+  <filesMatch "\.(js)$">
+    Header set Cache-Control "private"
+  </filesMatch>
+  <filesMatch "\.(x?html?|php)$">
+    Header set Cache-Control "private, must-revalidate"
+  </filesMatch>
+</ifModule>
+<IfModule mod_deflate.c>
+  SetOutputFilter DEFLATE
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|ico)$ no-gzip dont-vary
+  SetEnvIfNoCase Request_URI _\.utxt$ no-gzip
+  Header append Vary Accept-Encoding env=!dont-vary
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/js
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/atom_xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/x-httpd-php
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-font-woff
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+</IfModule>
+<IfModule mod_deflate.c>
+# mod_defiltgerを有効化
+SetOutputFilter DEFLATE
+# 古いブラウザ対策
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch \bMSIE\s(7|8) !no-gzip !gzip-only-text/html
+# 画像は圧縮しない GIF、JPEG、PNG、ICO
+SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|ico)$ no-gzip dont-vary
+# ユーザーエージェントごとにキャッシュさせる
+Header append Vary User-Agent env=!dont-vary
+</IfModule>
+<ifModule mod_expires.c>
+ExpiresActive On
+#MIMEType
+ExpiresDefault "access plus 3 days"
+ExpiresByType text/html "access plus 1 seconds"
+ExpiresByType text/css "access plus 1 weeks"
+ExpiresByType text/javascript "access plus 1 months"
+ExpiresByType image/jpg "access plus 1 months"
+ExpiresByType image/png "access plus 1 months"
+ExpiresByType image/x-icon "access plus 1 months"
+ExpiresByType application/pdf "access plus 1 weeks"
+ExpiresByType application/x-font-opentype "access plus 1 weeks"
+ExpiresByType application/x-font-ttf "access plus 1 weeks"
+ExpiresByType application/x-font-woff "access plus 1 weeks"
+ExpiresByType application/javascript "access plus 1 months"
+ExpiresByType application/x-javascript "access plus 1 months"
+</ifModule>
+SetEnvIf Request_URI ".*" AllowCountry
+SetEnvIf Request_URI ".*" AllowRestApi
+SetEnvIf Request_URI ".*" AllowXmlrpc
+SetEnvIf Request_URI ".*" AllowCountry
+SetEnvIf Request_URI ".*" AllowRestApi

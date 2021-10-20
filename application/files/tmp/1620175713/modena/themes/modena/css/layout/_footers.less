@@ -1,0 +1,42 @@
+/* ========================================
+Footers
+======================================== */
+
+.ccm-page footer {
+    background-color: @footer-background-color;
+}
+
+.copyright {
+    &-content {
+        font-size: 11px;
+    }
+    &-border {
+        border-top: 1px solid @footer-border-color;
+    }
+}
+
+.back-to-top--floating {
+    width: 40px;
+    height: 40px;
+    border: 1px solid @back-to-top-color;
+    position: fixed;
+    right: 50px;
+    bottom: 55px;
+    cursor: pointer;
+    text-align: center;
+    z-index: 100;
+    &:before {
+        font-family: "Ionicons";
+        color: @back-to-top-color;
+        content: "\f3d8";
+        line-height: 40px;
+        font-size: 25px;
+        font-weight: 200;
+    }
+}
+
+@media (@breakpoint-large) {
+    .back-to-top--floating {
+        right: 15px;
+    }
+}

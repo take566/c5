@@ -1,0 +1,66 @@
+/* ========================================
+Social Networks
+======================================== */
+
+.ccm-page {
+    .sharing {
+        &-icons {
+            list-style-type: none;
+        }
+        &-icon {
+            font-size: 22px;
+            margin-right: 4px;
+            display: inline-block;
+            line-height: 32px;
+            text-align: center;
+            a {
+                display: block;
+                width: 32px;
+                height: 32px;
+                transition: all 350ms ease-in-out;
+                &.sharing-icon--light {
+                    background-color:@sharing-light-background-color;
+                    color: @sharing-light-text-color;
+                    &:hover {
+                        background-color:@sharing-light-background-hover-color;
+                        color: @sharing-light-text-hover-color;
+                    }
+                }
+                &.sharing-icon--dark {
+                    background-color:@sharing-dark-background-color;
+                    color: @sharing-dark-text-color;
+                    &:hover {
+                        background-color:@sharing-dark-background-hover-color;
+                        color: @sharing-dark-text-hover-color;
+                    }
+                }
+            }
+            &--round {
+                border-radius: 32px;
+            }
+        }
+    }
+
+    .blog-sharing {
+        &__icons-wrapper {
+            width: auto;
+            display: flex;
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+        &__icons {
+            text-align: center;
+            font-size: 24px;
+            flex: 1;
+            border: 1px solid #303030;
+            margin: 5px; 
+            padding: 5px;
+            transition: all 350ms ease-in-out;
+            &:hover {
+                border: 1px solid #303030;
+                color: #ffffff;
+                background-color: #303030;
+            }
+        }
+    }
+}

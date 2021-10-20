@@ -1,0 +1,203 @@
+/* ========================================
+Buttons
+======================================== */
+
+.ccm-page {
+    .button, .btn {
+        display: inline-block;
+        padding: .425rem 1.6rem;
+        outline: 0;
+        border: 1px solid transparent;
+        vertical-align: baseline;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+        line-height: 1.65;
+        user-select: none;
+        -webkit-appearance: none;
+        transition: all 350ms ease-in-out;
+        i {
+            margin-right: 4px;
+        }
+        &-ghost {
+            padding: .415em 1.555em;
+            vertical-align: middle;
+            background-color: transparent !important;
+            &-primary {
+                border: .15em solid @ghost-button-background-color;
+                color: @ghost-button-text-color;
+                &:hover {
+                    border: .15em solid @ghost-button-background-hover-color;
+                    background-color: @ghost-button-background-hover-color;
+                    color: @ghost-button-text-hover-color;
+                }
+            }
+            &-secondary {
+                border: .15em solid @secondary-ghost-button-background-color;
+                color: @secondary-ghost-button-text-color;
+                &:hover {
+                    border: .15em solid @secondary-ghost-button-background-hover-color;
+                    background-color: @secondary-ghost-button-background-hover-color;
+                    color: @secondary-ghost-button-text-hover-color;
+                }
+            }
+            &-tertiary {
+                border: .15em solid @tertiary-ghost-button-background-color;
+                color: @tertiary-ghost-button-text-color;
+                &:hover {
+                    border: .15em solid @tertiary-ghost-button-background-hover-color;
+                    background-color: @tertiary-ghost-button-background-hover-color;
+                    color: @tertiary-ghost-button-text-hover-color;
+                }
+            }
+            &-utility-1 {
+                border: .15em solid @utility-ghost-button-background-color;
+                color: @utility-ghost-button-text-color;
+                &:hover {
+                    border: .15em solid @utility-ghost-button-background-hover-color;
+                    background-color: @utility-ghost-button-background-hover-color;
+                    color: @utility-ghost-button-text-hover-color;
+                }
+            }
+            &-utility-2 {
+                border: .15em solid @utility-ghost-button-2-background-color;
+                color: @utility-ghost-button-2-text-color;
+                &:hover {
+                    border: .15em solid @utility-ghost-button-2-background-hover-color;
+                    background-color: @utility-ghost-button-2-background-hover-color;
+                    color: @utility-ghost-button-2-text-hover-color;
+                }
+            }
+            &-warning {
+                border: .15em solid @warning-color-amber;
+                color: @warning-color-amber;
+                &:hover {
+                    border: .15em solid @warning-color-amber-hover;
+                    background-color: @warning-color-amber-hover;
+                    color: #fff;
+                }
+            }
+            &-success {
+                border: .15em solid @warning-color-green;
+                color: @warning-color-green;
+                &:hover {
+                    border: .15em solid @warning-color-green-hover;
+                    background-color: @warning-color-green-hover;
+                    color: #fff;
+                }
+            }
+            &-danger {
+                border: .15em solid @warning-color-red;
+                color: @warning-color-red;
+                &:hover {
+                    border: .15em solid @warning-color-red-hover;
+                    background-color: @warning-color-red-hover;
+                    color: #fff;
+                }
+            }
+        }
+        &-warning {
+            background-color: @warning-color-amber;
+            color: #fff;
+            &:hover {
+                background-color: @warning-color-amber-hover;
+                color: #fff;
+            }
+        }
+        &-success {
+            background-color: @warning-color-green;
+            color: #fff;
+            &:hover {
+                background-color: @warning-color-green-hover;
+                color: #fff;
+            }
+        }
+        &-danger {
+            background-color: @warning-color-red;
+            color: #fff;
+            &:hover {
+                background-color: @warning-color-red-hover;
+                color: #fff;
+            }
+        }
+        &-rounded {
+            border-radius: 4px;
+        }
+        &-pill {
+            border-radius: 50px;
+        }
+        &-default {
+            background-color: @button-background-color;
+            color: @button-text-color;
+            &:hover {
+                background-color: @button-background-hover-color;
+                color: @button-text-hover-color;
+            }
+        }
+        &-primary {
+            background-color: @button-background-color;
+            color: @button-text-color;
+            &:hover {
+                background-color: @button-background-hover-color;
+                color: @button-text-hover-color;
+            }
+        }
+        &-secondary {
+            background-color: @secondary-button-background-color;
+            color: @secondary-button-text-color;
+            &:hover {
+                background-color: @secondary-button-background-hover-color;
+                color: @secondary-button-text-hover-color;
+            }
+        }
+        &-tertiary {
+            background-color: @tertiary-button-background-color;
+            color: @tertiary-button-text-color;
+            &:hover {
+                background-color: @tertiary-button-background-hover-color;
+                color: @tertiary-button-text-hover-color;
+            }
+        }
+        &-utility-1 {
+            background-color: @utility-button-background-color;
+            color: @utility-button-text-color;
+            &:hover {
+                background-color: @utility-button-background-hover-color;
+                color: @utility-button-text-hover-color;
+            }
+        }
+        &-utility-2 {
+            background-color: @utility-button-2-background-color;
+            color: @utility-button-2-text-color;
+            &:hover {
+                background-color: @utility-button-2-background-hover-color;
+                color: @utility-button-2-text-hover-color;
+            }
+        }
+    }
+}
+
+.ccm-conversation-wrapper .btn, .form-actions .btn, .search-results-submit {
+    display: inline-block;
+    padding: .425rem 1.6rem;
+    outline: 0;
+    border: 1px solid transparent;
+    vertical-align: baseline;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 1.65;
+    user-select: none;
+    -webkit-appearance: none;
+    transition: all 350ms ease-in-out;
+    background-color: @button-background-color;
+    color: @button-text-color;
+    &:hover {
+        background-color: @button-background-hover-color;
+        color: @button-text-hover-color;
+    }
+}
+
+div.ccm-conversation-add-new-message div.ccm-conversation-message-form .ccm-conversation-attachment-toggle {
+    opacity: 1;
+}
