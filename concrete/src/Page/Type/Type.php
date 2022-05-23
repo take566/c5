@@ -1,6 +1,7 @@
 <?php
 namespace Concrete\Core\Page\Type;
 
+use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Attribute\Key\CollectionKey;
 use Concrete\Core\Multilingual\Page\Section\Section;
 use Concrete\Core\Page\Template;
@@ -24,7 +25,7 @@ use CollectionVersion;
 use Collection;
 use Concrete\Core\Page\Page;
 use Config;
-use User;
+use Concrete\Core\User\User;
 use Package;
 use Concrete\Core\Workflow\Request\ApprovePageRequest as ApprovePagePageWorkflowRequest;
 use CacheLocal;
@@ -83,6 +84,9 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
         return $this->ptPublishTargetTypeID;
     }
 
+    /**
+     * @return \Concrete\Core\Page\Type\PublishTarget\Configuration\Configuration
+     */
     public function getPageTypePublishTargetObject()
     {
         return $this->ptPublishTargetObject;
@@ -176,8 +180,9 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
         }
     }
 
-    public function publish(Page $c, $requestOrDateTime = null, $cvPublishEndDate = null)
+    public function publish(Page $c, $requestOrDateTime = null, $cvPublishEndDate = null, bool $keepOtherScheduling = false)
     {
+        $app = Application::getFacadeApplication();
         $this->stripEmptyPageTypeComposerControls($c);
         $parent = Page::getByID($c->getPageDraftTargetParentPageID());
         if ($c->isPageDraft()) { // this is still a draft, which means it has never been properly published.
@@ -197,7 +202,7 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
             $c->rescanCollectionPath();
         }
 
-        $u = new User();
+        $u = $app->make(User::class);
         if (!($requestOrDateTime instanceof ApprovePagePageWorkflowRequest)) {
             $v = CollectionVersion::get($c, 'RECENT');
             $pkr = new ApprovePagePageWorkflowRequest();
@@ -208,6 +213,7 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
                 // That means it's a date time
                 $pkr->scheduleVersion($requestOrDateTime, $cvPublishEndDate);
             }
+            $pkr->setKeepOtherScheduling($keepOtherScheduling);
         } else {
             $pkr = $requestOrDateTime;
         }
@@ -238,7 +244,7 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
             'select pTemplateID from PageTypePageTemplates where ptID = ? order by pTemplateID asc',
             array($this->ptID)
         );
-        while ($row = $r->FetchRow()) {
+        while ($row = $r->fetch()) {
             $pt = PageTemplate::getByID($row['pTemplateID']);
             if (is_object($pt)) {
                 $templates[] = $pt;
@@ -266,6 +272,11 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
     {
         if (!$template) {
             $template = $this->getPageTypeDefaultPageTemplateObject();
+        }
+
+        if (!$template) {
+            // We're probably on an internal page like core theme documentation or core stack display
+            return;
         }
 
         $db = Loader::db();
@@ -394,8 +405,10 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
         if ($ptAllowedPageTemplates) {
             $data['allowedTemplates'] = $ptAllowedPageTemplates;
         }
-        if ($node['internal']) {
-            $data['internal'] = true;
+
+        $data['internal'] = 0;
+        if ($node['internal'] == '1') {
+            $data['internal'] = 1;
         }
 
         $data['ptLaunchInComposer'] = 0;
@@ -617,7 +630,7 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
         $db = \Database::get();
         $r = $db->Execute('select cID from Pages where cIsTemplate = 1 and ptID = ?', array($this->getPageTypeID()));
         $home = Page::getByID(Page::getHomePageID());
-        while ($row = $r->FetchRow()) {
+        while ($row = $r->fetch()) {
             $c = Page::getByID($row['cID']);
             if (is_object($c)) {
                 $nc = $c->duplicate($home);
@@ -1155,8 +1168,9 @@ class Type extends ConcreteObject implements \Concrete\Core\Permission\ObjectInt
 
     public function createDraft(\Concrete\Core\Entity\Page\Template $pt, $u = false)
     {
+        $app = Application::getFacadeApplication();
         if (!is_object($u)) {
-            $u = new User();
+            $u = $app->make(User::class);
         }
         $db = Loader::db();
         $ptID = $this->getPageTypeID();

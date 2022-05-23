@@ -4,11 +4,16 @@ namespace Concrete\Attribute\UserSelector;
 use Concrete\Core\Attribute\Controller as AttributeTypeController;
 use Concrete\Core\Attribute\FontAwesomeIconFormatter;
 use Concrete\Core\Entity\Attribute\Value\Value\NumberValue;
-use UserInfo;
-use User;
+use Concrete\Core\User\User;
+use Concrete\Core\User\UserInfo;
 
 class Controller extends AttributeTypeController
 {
+    protected $searchIndexFieldDefinition = [
+        'type' => 'integer',
+        'options' => ['default' => 0, 'notnull' => false],
+    ];
+
     public function getIconFormatter()
     {
         return new FontAwesomeIconFormatter('user');
@@ -61,6 +66,11 @@ class Controller extends AttributeTypeController
         $av->setValue($value);
 
         return $av;
+    }
+
+    public function getSearchIndexValue()
+    {
+        return $this->attributeValue->getValue();
     }
 
     public function createAttributeValueFromRequest()

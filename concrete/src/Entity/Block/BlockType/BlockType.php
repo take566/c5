@@ -18,7 +18,7 @@ use Loader;
 use Localization;
 use Package;
 use Page;
-use User;
+use Concrete\Core\User\User;
 use Doctrine\ORM\Mapping as ORM;
 use Concrete\Core\Database\Connection\Connection;
 
@@ -340,10 +340,10 @@ class BlockType
         $r = $db->Execute(
                 'select btsID from BlockTypeSetBlockTypes where btID = ? order by displayOrder asc',
                 array($this->getBlockTypeID()));
-        while ($row = $r->FetchRow()) {
+        while ($row = $r->fetch()) {
             $list[] = BlockTypeSet::getByID($row['btsID']);
         }
-        $r->Close();
+        $r->free();
 
         return $list;
     }
@@ -603,7 +603,7 @@ EOT
                     inner join Blocks b on b.bID = btCSD.bOriginalID
                 where btID = ?',
                 array($this->getBlockTypeID(), $this->getBlockTypeID()));
-        while ($row = $r->FetchRow()) {
+        while ($row = $r->fetch()) {
             $nc = Page::getByID($row['cID'], $row['cvID']);
             if (!is_object($nc) || $nc->isError()) {
                 continue;
@@ -637,7 +637,7 @@ EOT
         $app = Facade::getFacadeApplication();
         $db = $app->make('database')->connection();
 
-        $u = new User();
+        $u = $app->make(User::class);
         if (isset($data['uID'])) {
             $uID = $data['uID'];
         } else {
@@ -670,7 +670,7 @@ EOT
                 $nb->setBlockAreaObject($a);
             }
             $class = $this->getBlockTypeClass();
-            $bc = $app->build($class, [$nb]);
+            $bc = $app->make($class, ['obj' => $nb]);
             $bc->save($data);
 
             return Block::getByID($bIDnew);
@@ -686,7 +686,7 @@ EOT
 
         /** @var Controller controller */
         if ($class) {
-            $this->controller = Facade::getFacadeApplication()->build($class, [$this]);
+            $this->controller = Facade::getFacadeApplication()->make($class, ['obj' => $this]);
         }
     }
 }

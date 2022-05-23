@@ -1,0 +1,342 @@
+O:40:"Concrete\Core\Cache\Page\PageCacheRecord":5:{s:7:"expires";i:1653279541;s:14:"cacheRecordKey";s:15:"www.take566.com";s:7:"headers";a:3:{s:6:"Pragma";s:6:"public";s:13:"Cache-Control";s:28:"max-age=21600,s-maxage=21600";s:7:"Expires";s:29:"Mon, 23 May 2022 04:19:01 GMT";}s:3:"url";s:0:"";s:7:"content";s:15157:"<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/tmf/updates/concrete-cms-9.1.0/concrete/themes/atomik/css/skins/default.css"></link>    
+<title>Home :: take make factory</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="Concrete CMS"/>
+<link rel="canonical" href="https://www.take566.com/tmf/index.php">
+<script type="text/javascript">
+    var CCM_DISPATCHER_FILENAME = "/tmf/index.php";
+    var CCM_CID = 1;
+    var CCM_EDIT_MODE = false;
+    var CCM_ARRANGE_MODE = false;
+    var CCM_IMAGE_PATH = "/tmf/updates/concrete-cms-9.1.0/concrete/images";
+    var CCM_APPLICATION_URL = "https://www.take566.com/tmf";
+    var CCM_REL = "/tmf";
+    var CCM_ACTIVE_LOCALE = "ja_JP";
+    var CCM_USER_REGISTERED = false;
+</script>
+
+<link href="https://www.take566.com/tmf/index.php/rss/kousin" rel="alternate" type="application/rss+xml">
+<link href="/tmf/updates/concrete-cms-9.1.0/concrete/css/fontawesome/all.css?ccm_nocache=7e2b48c14d63943f4dfb7d04c0798d17fbcb81fc" rel="stylesheet" type="text/css" media="all">
+<script type="text/javascript" src="/tmf/updates/concrete-cms-9.1.0/concrete/js/jquery.js?ccm_nocache=7e2b48c14d63943f4dfb7d04c0798d17fbcb81fc"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5931865-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5931865-1');
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="theme-atomik ccm-page ccm-page-id-1 page-type-page page-template-full">
+
+
+
+    
+<div class="ccm-block-top-navigation-bar" style="display: none" data-transparency="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://www.take566.com/tmf/index.php">
+                                
+                            </a>
+
+                            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#top-navigation-bar-210" aria-controls="#top-navigation-bar-210" aria-expanded="false" aria-label="Toggle Navigation">
+                                        <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                                    </button>
+                <div class="collapse navbar-collapse" id="top-navigation-bar-210">
+                                            <form method="get" action="https://www.take566.com/tmf/index.php/%21trash/search">
+                            <div class="input-group">
+                                <input class="form-control border-end-0 border" type="search" name="query" placeholder="検索" aria-label="検索">
+                                <span class="input-group-append">
+                                    <button class="btn bg-white border-start-0 border" type="submit">
+                                        <i class="fas fa-search text-secondary"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="http://take566.com/">ホーム</a></li>
+                                                                                    <li class="nav-item"><a class="nav-link" href="https://www.take566.com/tmf/index.php/move">move</a></li>
+                                                                                    <li class="nav-item"><a class="nav-link" href="https://www.take566.com/tmf/index.php/music">music</a></li>
+                                                                                    <li class="nav-item"><a class="nav-link" href="https://www.take566.com/tmf/index.php/discovery">discovery</a></li>
+                                                                                    <li class="nav-item"><a class="nav-link" href="https://www.take566.com/tmf/index.php/contact">問合せ</a></li>
+                                                                        </ul>
+
+                </div>
+                    </div>
+    </nav>
+</div>
+
+
+
+    <h1  class="ccm-block-page-title page-title">Home</h1>
+
+
+    
+
+
+    <div class="stripe two-column-stripe bg-light">
+    <div class="container">
+        <div class="row gx-xl-10">
+            <div class="col-md-6">
+                            </div>
+            <div class="col-md-6">
+                            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+$(document).ready(function(){
+    $(function () {
+        $("#ccm-image-slider-222").responsiveSlides({
+            prevText: "",   // String: Text for the "previous" button
+            nextText: "",
+		        nav: true,
+        pager: true,
+                    timeout: 4000,            speed: 500,            pause: true,            auto: false,                    });
+    });
+});
+</script>
+
+<div class="ccm-image-slider-container ccm-block-image-slider-pages" >
+    <div class="ccm-image-slider">
+        <div class="ccm-image-slider-inner">
+
+                <ul class="rslides" id="ccm-image-slider-222">
+                            <li>
+                                                <picture><!--[if IE 9]><video style='display: none;'><![endif]--><!--[if IE 9]></video><![endif]--><img src="/tmf/application/files/6816/4713/8672/tmf.jpg" alt="slide"></picture>                                <div class="ccm-image-slider-text">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                                                                            </div>
+                        </div>
+                    </div>
+                </div>
+                </li>
+                    </ul>
+                </div>
+
+    </div>
+</div>
+
+
+
+    <div class="stripe one-column bg-light">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="stripe-title">
+                        
+
+    <h1  class="ccm-block-page-title page-title">take make factory</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+<div class="container"><div class="row"><div class="col-md-12">    <div class="row"><div class="col-md-6">
+
+        <div class="ccm-block-page-list-header">
+        <h5>更新情報</h5>
+    </div>
+    
+<div class="container">
+    <div class="row gx-7">
+    
+        <div class="col-lg-4 col-md-6 mb-5">
+                    </div>
+
+    
+        <div class="col-lg-4 col-md-6 mb-5">
+                    </div>
+
+    
+        <div class="col-lg-4 col-md-6 mb-5">
+                    </div>
+
+    
+        <div class="col-lg-4 col-md-6 mb-5">
+                    </div>
+
+    
+        <div class="col-lg-4 col-md-6 mb-5">
+                    </div>
+
+        </div>
+</div>
+
+
+
+
+
+    <div class="ccm-block-autonav"><ul class="nav flex-column"><li class="nav-item"><a href="https://www.take566.com/tmf/index.php" target="_self" class="nav-link active nav-path-selected">Home</a></li><li class="nav-item"><a href="http://take566.com/" target="_blank" class="nav-link">Home</a></li><li class="nav-item"><a href="https://www.take566.com/tmf/index.php/move" target="_self" class="nav-link">move</a></li><li class="nav-item"><a href="https://www.take566.com/tmf/index.php/music" target="_self" class="nav-link">music</a></li><li class="nav-item"><a href="https://www.take566.com/tmf/index.php/discovery" target="_self" class="nav-link">discovery</a></li><li class="nav-item"><a href="https://www.take566.com/tmf/index.php/contact" target="_self" class="nav-link">Contact</a></li></ul></div>
+</div><div class="col-md-6">
+
+    <p><a class="twitter-timeline" data-widget-id="591046334993444864" href="https://twitter.com/take566">@take566さんのツイート</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
+
+</div></div>
+</div></div></div>
+</div>
+
+<footer>
+    <section class="mb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    
+
+    
+    <div class="ccm-block-page-list-wrapper">
+
+        
+        
+        <div class="ccm-block-page-list-pages">
+
+            
+                <div class="ccm-block-page-list-page-entry">
+
+                    
+                                            <div class="ccm-block-page-list-page-entry-text">
+
+                                                            <div class="ccm-block-page-list-title">
+                                                                            <a href="https://www.take566.com/tmf/index.php"
+                                           target="">Home</a>
+                                                                        </div>
+                                
+                            
+                                                            <div class="ccm-block-page-list-description"></div>
+                                
+                            
+                        </div>
+                                        </div>
+
+                
+                <div class="ccm-block-page-list-page-entry">
+
+                    
+                                            <div class="ccm-block-page-list-page-entry-text">
+
+                                                            <div class="ccm-block-page-list-title">
+                                                                            <a href="https://www.take566.com/tmf/index.php/move"
+                                           target="">move</a>
+                                                                        </div>
+                                
+                            
+                                                            <div class="ccm-block-page-list-description"></div>
+                                
+                            
+                        </div>
+                                        </div>
+
+                
+                <div class="ccm-block-page-list-page-entry">
+
+                    
+                                            <div class="ccm-block-page-list-page-entry-text">
+
+                                                            <div class="ccm-block-page-list-title">
+                                                                            <a href="https://www.take566.com/tmf/index.php/music"
+                                           target="">music</a>
+                                                                        </div>
+                                
+                            
+                                                            <div class="ccm-block-page-list-description"></div>
+                                
+                            
+                        </div>
+                                        </div>
+
+                
+                <div class="ccm-block-page-list-page-entry">
+
+                    
+                                            <div class="ccm-block-page-list-page-entry-text">
+
+                                                            <div class="ccm-block-page-list-title">
+                                                                            <a href="https://www.take566.com/tmf/index.php/discovery"
+                                           target="">discovery</a>
+                                                                        </div>
+                                
+                            
+                                                            <div class="ccm-block-page-list-description"></div>
+                                
+                            
+                        </div>
+                                        </div>
+
+                
+                <div class="ccm-block-page-list-page-entry">
+
+                    
+                                            <div class="ccm-block-page-list-page-entry-text">
+
+                                                            <div class="ccm-block-page-list-title">
+                                                                            <a href="https://www.take566.com/tmf/index.php/contact"
+                                           target="">Contact</a>
+                                                                        </div>
+                                
+                            
+                                                            <div class="ccm-block-page-list-description"></div>
+                                
+                            
+                        </div>
+                                        </div>
+
+                        </div><!-- end .ccm-block-page-list-pages -->
+
+        
+    </div><!-- end .ccm-block-page-list-wrapper -->
+
+
+    
+    
+                </div>
+                <div class="col-md-2 col-6">
+                                    </div>
+                <div class="col-md-2 col-6">
+                                    </div>
+                <div class="col-md-5 col-12">
+                    <hr class="d-md-none">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="concrete-branding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    Copyright 2022.                     Built with <strong><a href="https://www.concretecms.org" title="Concrete CMS" rel="nofollow">Concrete CMS</a></strong>.                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="https://www.take566.com/tmf/index.php/login">ログイン</a>                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+
+</div>
+
+<script type="text/javascript" src="/tmf/updates/concrete-cms-9.1.0/concrete/js/vue.js?ccm_nocache=7e2b48c14d63943f4dfb7d04c0798d17fbcb81fc"></script>
+<script type="text/javascript" src="/tmf/updates/concrete-cms-9.1.0/concrete/js/bootstrap.js?ccm_nocache=18125c8b14318f2753299e91cd679f14f3ccc136"></script>
+<script type="text/javascript" src="/tmf/updates/concrete-cms-9.1.0/concrete/js/moment.js?ccm_nocache=277064ffa400c777fee5ffcbbe61630fb913a7bc"></script>
+<script type="text/javascript" src="/tmf/index.php/ccm/assets/localization/moment/js"></script>
+<script type="text/javascript" src="/tmf/updates/concrete-cms-9.1.0/concrete/themes/atomik/main.js"></script>
+
+</body>
+</html>
+";}

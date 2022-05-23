@@ -2,6 +2,7 @@
 
 namespace IPLib\Address;
 
+use IPLib\ParseStringFlag;
 use IPLib\Range\RangeInterface;
 use IPLib\Range\Subnet;
 use IPLib\Range\Type as RangeType;
@@ -55,7 +56,7 @@ class IPv6 implements AddressInterface
      *
      * @var array|null
      */
-    private static $reservedRanges = null;
+    private static $reservedRanges;
 
     /**
      * Initializes the instance.
@@ -72,35 +73,79 @@ class IPv6 implements AddressInterface
     }
 
     /**
-     * Parse a string and returns an IPv6 instance if the string is valid, or null otherwise.
+     * {@inheritdoc}
      *
-     * @param string|mixed $address the address to parse
-     * @param bool $mayIncludePort set to false to avoid parsing addresses with ports
-     * @param bool $mayIncludeZoneID set to false to avoid parsing addresses with zone IDs (see RFC 4007)
+     * @see \IPLib\Address\AddressInterface::__toString()
+     */
+    public function __toString()
+    {
+        return $this->toString();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \IPLib\Address\AddressInterface::getNumberOfBits()
+     */
+    public static function getNumberOfBits()
+    {
+        return 128;
+    }
+
+    /**
+     * @deprecated since 1.17.0: use the parseString() method instead.
+     * For upgrading:
+     * - if $mayIncludePort is true, use the ParseStringFlag::MAY_INCLUDE_PORT flag
+     * - if $mayIncludeZoneID is true, use the ParseStringFlag::MAY_INCLUDE_ZONEID flag
+     *
+     * @param string|mixed $address
+     * @param bool $mayIncludePort
+     * @param bool $mayIncludeZoneID
      *
      * @return static|null
+     *
+     * @see \IPLib\Address\IPv6::parseString()
+     * @since 1.1.0 added the $mayIncludePort argument
+     * @since 1.3.0 added the $mayIncludeZoneID argument
      */
     public static function fromString($address, $mayIncludePort = true, $mayIncludeZoneID = true)
     {
+        return static::parseString($address, 0 | ($mayIncludePort ? ParseStringFlag::MAY_INCLUDE_PORT : 0) | ($mayIncludeZoneID ? ParseStringFlag::MAY_INCLUDE_ZONEID : 0));
+    }
+
+    /**
+     * Parse a string and returns an IPv6 instance if the string is valid, or null otherwise.
+     *
+     * @param string|mixed $address the address to parse
+     * @param int $flags A combination or zero or more flags
+     *
+     * @return static|null
+     *
+     * @see \IPLib\ParseStringFlag
+     * @since 1.17.0
+     */
+    public static function parseString($address, $flags = 0)
+    {
+        $flags = (int) $flags;
         $result = null;
         if (is_string($address) && strpos($address, ':') !== false && strpos($address, ':::') === false) {
             $matches = null;
-            if ($mayIncludePort && $address[0] === '[' && preg_match('/^\[(.+)\]:\d+$/', $address, $matches)) {
+            if ($flags & ParseStringFlag::MAY_INCLUDE_PORT && $address[0] === '[' && preg_match('/^\[(.+)]:\d+$/', $address, $matches)) {
                 $address = $matches[1];
             }
-            if ($mayIncludeZoneID) {
+            if ($flags & ParseStringFlag::MAY_INCLUDE_ZONEID) {
                 $percentagePos = strpos($address, '%');
                 if ($percentagePos > 0) {
                     $address = substr($address, 0, $percentagePos);
                 }
             }
             if (preg_match('/^((?:[0-9a-f]*:+)+)(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$/i', $address, $matches)) {
-                $address6 = static::fromString($matches[1].'0:0', false);
+                $address6 = static::parseString($matches[1] . '0:0');
                 if ($address6 !== null) {
-                    $address4 = IPv4::fromString($matches[2], false);
+                    $address4 = IPv4::parseString($matches[2]);
                     if ($address4 !== null) {
                         $bytes4 = $address4->getBytes();
-                        $address6->longAddress = substr($address6->longAddress, 0, -9).sprintf('%02x%02x:%02x%02x', $bytes4[0], $bytes4[1], $bytes4[2], $bytes4[3]);
+                        $address6->longAddress = substr($address6->longAddress, 0, -9) . sprintf('%02x%02x:%02x%02x', $bytes4[0], $bytes4[1], $bytes4[2], $bytes4[3]);
                         $result = $address6;
                     }
                 }
@@ -161,7 +206,7 @@ class IPv6 implements AddressInterface
         $result = null;
         if (count($bytes) === 16) {
             $address = '';
-            for ($i = 0; $i < 16; ++$i) {
+            for ($i = 0; $i < 16; $i++) {
                 if ($i !== 0 && $i % 2 === 0) {
                     $address .= ':';
                 }
@@ -193,7 +238,7 @@ class IPv6 implements AddressInterface
         $result = null;
         if (count($words) === 8) {
             $chunks = array();
-            for ($i = 0; $i < 8; ++$i) {
+            for ($i = 0; $i < 8; $i++) {
                 $word = $words[$i];
                 if (is_int($word) && $word >= 0 && $word <= 0xffff) {
                     $chunks[] = sprintf('%04x', $word);
@@ -223,7 +268,7 @@ class IPv6 implements AddressInterface
             if ($this->shortAddress === null) {
                 if (strpos($this->longAddress, '0000:0000:0000:0000:0000:ffff:') === 0) {
                     $lastBytes = array_slice($this->getBytes(), -4);
-                    $this->shortAddress = '::ffff:'.implode('.', $lastBytes);
+                    $this->shortAddress = '::ffff:' . implode('.', $lastBytes);
                 } else {
                     $chunks = array_map(
                         function ($word) {
@@ -233,10 +278,10 @@ class IPv6 implements AddressInterface
                     );
                     $shortAddress = implode(':', $chunks);
                     $matches = null;
-                    for ($i = 8; $i > 1; --$i) {
-                        $search = '(?:^|:)'.rtrim(str_repeat('0:', $i), ':').'(?:$|:)';
-                        if (preg_match('/^(.*?)'.$search.'(.*)$/', $shortAddress, $matches)) {
-                            $shortAddress = $matches[1].'::'.$matches[2];
+                    for ($i = 8; $i > 1; $i--) {
+                        $search = '(?:^|:)' . rtrim(str_repeat('0:', $i), ':') . '(?:$|:)';
+                        if (preg_match('/^(.*?)' . $search . '(.*)$/', $shortAddress, $matches)) {
+                            $shortAddress = $matches[1] . '::' . $matches[2];
                             break;
                         }
                     }
@@ -247,16 +292,6 @@ class IPv6 implements AddressInterface
         }
 
         return $result;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \IPLib\Address\AddressInterface::__toString()
-     */
-    public function __toString()
-    {
-        return $this->toString();
     }
 
     /**
@@ -276,6 +311,21 @@ class IPv6 implements AddressInterface
         }
 
         return $this->bytes;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \IPLib\Address\AddressInterface::getBits()
+     */
+    public function getBits()
+    {
+        $parts = array();
+        foreach ($this->getBytes() as $byte) {
+            $parts[] = sprintf('%08b', $byte);
+        }
+
+        return implode('', $parts);
     }
 
     /**
@@ -376,10 +426,10 @@ class IPv6 implements AddressInterface
                 $exceptions = array();
                 if (isset($data[1])) {
                     foreach ($data[1] as $exceptionRange => $exceptionType) {
-                        $exceptions[] = new AssignedRange(Subnet::fromString($exceptionRange), $exceptionType);
+                        $exceptions[] = new AssignedRange(Subnet::parseString($exceptionRange), $exceptionType);
                     }
                 }
-                $reservedRanges[] = new AssignedRange(Subnet::fromString($range), $data[0], $exceptions);
+                $reservedRanges[] = new AssignedRange(Subnet::parseString($range), $data[0], $exceptions);
             }
             self::$reservedRanges = $reservedRanges;
         }
@@ -420,12 +470,16 @@ class IPv6 implements AddressInterface
      */
     public function toIPv4()
     {
-        $result = null;
         if (strpos($this->longAddress, '2002:') === 0) {
-            $result = IPv4::fromBytes(array_slice($this->getBytes(), 2, 4));
+            // 6to4
+            return IPv4::fromBytes(array_slice($this->getBytes(), 2, 4));
+        }
+        if (strpos($this->longAddress, '0000:0000:0000:0000:0000:ffff:') === 0) {
+            // IPv4-mapped IPv6 addresses
+            return IPv4::fromBytes(array_slice($this->getBytes(), -4));
         }
 
-        return $result;
+        return null;
     }
 
     /**
@@ -442,6 +496,7 @@ class IPv6 implements AddressInterface
      * @example '0000:0000:0000:0000:0000:0000:013.001.068.003' when $ipV6Long and $ipV4Long are true
      *
      * @see https://tools.ietf.org/html/rfc4291#section-2.2 point 3.
+     * @since 1.9.0
      */
     public function toMixedIPv6IPv4String($ipV6Long = false, $ipV4Long = false)
     {
@@ -477,26 +532,42 @@ class IPv6 implements AddressInterface
     /**
      * {@inheritdoc}
      *
+     * @see \IPLib\Address\AddressInterface::getAddressAtOffset()
+     */
+    public function getAddressAtOffset($n)
+    {
+        if (!is_int($n)) {
+            return null;
+        }
+
+        $boundary = 0x10000;
+        $mod = $n;
+        $words = $this->getWords();
+        for ($i = count($words) - 1; $i >= 0; $i--) {
+            $tmp = ($words[$i] + $mod) % $boundary;
+            $mod = (int) floor(($words[$i] + $mod) / $boundary);
+            if ($tmp < 0) {
+                $tmp += $boundary;
+            }
+
+            $words[$i] = $tmp;
+        }
+
+        if ($mod !== 0) {
+            return null;
+        }
+
+        return static::fromWords($words);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
      * @see \IPLib\Address\AddressInterface::getNextAddress()
      */
     public function getNextAddress()
     {
-        $overflow = false;
-        $words = $this->getWords();
-        for ($i = count($words) - 1; $i >= 0; --$i) {
-            if ($words[$i] === 0xffff) {
-                if ($i === 0) {
-                    $overflow = true;
-                    break;
-                }
-                $words[$i] = 0;
-            } else {
-                ++$words[$i];
-                break;
-            }
-        }
-
-        return $overflow ? null : static::fromWords($words);
+        return $this->getAddressAtOffset(1);
     }
 
     /**
@@ -506,21 +577,19 @@ class IPv6 implements AddressInterface
      */
     public function getPreviousAddress()
     {
-        $overflow = false;
-        $words = $this->getWords();
-        for ($i = count($words) - 1; $i >= 0; --$i) {
-            if ($words[$i] === 0) {
-                if ($i === 0) {
-                    $overflow = true;
-                    break;
-                }
-                $words[$i] = 0xffff;
-            } else {
-                --$words[$i];
-                break;
-            }
-        }
+        return $this->getAddressAtOffset(-1);
+    }
 
-        return $overflow ? null : static::fromWords($words);
+    /**
+     * {@inheritdoc}
+     *
+     * @see \IPLib\Address\AddressInterface::getReverseDNSLookupName()
+     */
+    public function getReverseDNSLookupName()
+    {
+        return implode(
+            '.',
+            array_reverse(str_split(str_replace(':', '', $this->toString(true)), 1))
+        ) . '.ip6.arpa';
     }
 }

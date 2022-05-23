@@ -3,12 +3,12 @@
 namespace Concrete\Core\Encryption;
 
 use Concrete\Core\Config\Repository\Repository;
-use Hautelook\Phpass\PasswordHash;
+use Concrete\Core\Legacy\PasswordHash;
 
 class PasswordHasher
 {
     /**
-     * @var \Hautelook\Phpass\PasswordHash
+     * @var \Concrete\Core\Legacy\PasswordHash
      */
     private $phpassPasswordHash;
 

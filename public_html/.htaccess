@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+RewriteCond %{REQUEST_URI} !^tmf/ [NC]
+RewriteRule ^(.*)$ /tmf/$1
+RewriteCond %{HTTPS} !on
+</IfModule>
+SetEnvIf Request_URI ".*" AllowXmlrpc
+SetEnvIf Request_URI ".*" AllowRestApi
+SetEnvIf Request_URI ".*" WpCommentDeny

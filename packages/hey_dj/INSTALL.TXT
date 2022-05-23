@@ -1,8 +1,0 @@
-# Installation Instructions
-
-1. Install concrete5 in the state of empty.
-2. Thaw zip and put in packages.
-3. Log in as an administrator.
-4. Install from concrete5 extension.
-5. " Install of sample package is to" Yes "” Please select.
-6. If it waits for a while, it will be the completion of installation.

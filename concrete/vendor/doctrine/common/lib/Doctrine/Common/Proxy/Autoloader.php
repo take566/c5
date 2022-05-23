@@ -1,30 +1,26 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license. For more information, see
- * <http://www.doctrine-project.org>.
- */
 
 namespace Doctrine\Common\Proxy;
 
+use Closure;
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
+
+use function call_user_func;
+use function file_exists;
+use function is_callable;
+use function ltrim;
+use function spl_autoload_register;
+use function str_replace;
+use function strlen;
+use function strpos;
+use function substr;
+
+use const DIRECTORY_SEPARATOR;
 
 /**
  * Special Autoloader for Proxy classes, which are not PSR-0 compliant.
  *
- * @author Benjamin Eberlei <kontakt@beberlei.de>
+ * @internal
  */
 class Autoloader
 {
@@ -42,16 +38,22 @@ class Autoloader
      * @return string
      *
      * @throws InvalidArgumentException
+     *
+     * @psalm-param class-string $className
      */
     public static function resolveFile($proxyDir, $proxyNamespace, $className)
     {
-        if (0 !== strpos($className, $proxyNamespace)) {
+        if (strpos($className, $proxyNamespace) !== 0) {
             throw InvalidArgumentException::notProxyClass($className, $proxyNamespace);
         }
 
-        $className = str_replace('\\', '', substr($className, strlen($proxyNamespace) + 1));
+        // remove proxy namespace from class name
+        $classNameRelativeToProxyNamespace = substr($className, strlen($proxyNamespace));
 
-        return $proxyDir . DIRECTORY_SEPARATOR . $className . '.php';
+        // remove namespace separators from remaining class name
+        $fileName = str_replace('\\', '', $classNameRelativeToProxyNamespace);
+
+        return $proxyDir . DIRECTORY_SEPARATOR . $fileName . '.php';
     }
 
     /**
@@ -61,7 +63,7 @@ class Autoloader
      * @param string        $proxyNamespace
      * @param callable|null $notFoundCallback Invoked when the proxy file is not found.
      *
-     * @return \Closure
+     * @return Closure
      *
      * @throws InvalidArgumentException
      */
@@ -69,20 +71,26 @@ class Autoloader
     {
         $proxyNamespace = ltrim($proxyNamespace, '\\');
 
-        if ( ! (null === $notFoundCallback || is_callable($notFoundCallback))) {
+        if ($notFoundCallback !== null && ! is_callable($notFoundCallback)) {
             throw InvalidArgumentException::invalidClassNotFoundCallback($notFoundCallback);
         }
 
-        $autoloader = function ($className) use ($proxyDir, $proxyNamespace, $notFoundCallback) {
-            if (0 === strpos($className, $proxyNamespace)) {
-                $file = Autoloader::resolveFile($proxyDir, $proxyNamespace, $className);
-
-                if ($notFoundCallback && ! file_exists($file)) {
-                    call_user_func($notFoundCallback, $proxyDir, $proxyNamespace, $className);
-                }
-
-                require $file;
+        $autoloader = static function ($className) use ($proxyDir, $proxyNamespace, $notFoundCallback) {
+            if ($proxyNamespace === '') {
+                return;
             }
+
+            if (strpos($className, $proxyNamespace) !== 0) {
+                return;
+            }
+
+            $file = Autoloader::resolveFile($proxyDir, $proxyNamespace, $className);
+
+            if ($notFoundCallback && ! file_exists($file)) {
+                call_user_func($notFoundCallback, $proxyDir, $proxyNamespace, $className);
+            }
+
+            require $file;
         };
 
         spl_autoload_register($autoloader);

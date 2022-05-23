@@ -1,13 +1,8 @@
-<IfModule mod_rewrite.c>
-	RewriteEngine On
-	RewriteBase /
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteRule . index.php [L]
-  RewriteCond %{HTTPS} !on
-  </IfModule>
-<ifModule mod_headers.c>
-    Header unset ETag
-</ifModule>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /tmf/index.php/$1 [L]
 FileETag None
 <IfModule mod_headers.c>
 </IfModule>
@@ -105,3 +100,25 @@ SetEnvIf Request_URI ".*" AllowRestApi
 SetEnvIf Request_URI ".*" AllowXmlrpc
 SetEnvIf Request_URI ".*" AllowCountry
 SetEnvIf Request_URI ".*" AllowRestApi
+# BEGIN rlrssslReallySimpleSSL rsssl_version[5.1.0]
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTP:CF-Visitor} '"scheme":"http"'
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+# END rlrssslReallySimpleSSL
+# BEGIN WordPress
+# "BEGIN WordPress" から "END WordPress" までのディレクティブ (行) は
+# 動的に生成され、WordPress フィルターによってのみ修正が可能です。
+# これらのマーカー間にあるディレクティブへのいかなる変更も上書きされてしまいます。
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress

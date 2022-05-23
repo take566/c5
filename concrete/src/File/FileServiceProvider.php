@@ -3,7 +3,19 @@
 namespace Concrete\Core\File;
 
 use Concrete\Core\Application\Application;
-use Concrete\Core\File\Image\Svg\SanitizerOptions;
+use Concrete\Core\File\Component\Chooser\ChooserConfiguration;
+use Concrete\Core\File\Component\Chooser\ChooserConfigurationInterface;
+use Concrete\Core\File\Component\Chooser\DefaultConfiguration;
+use Concrete\Core\File\Component\Chooser\Option\FileSetsOption;
+use Concrete\Core\File\Component\Chooser\Option\FileUploadOption;
+use Concrete\Core\File\Component\Chooser\Option\FileManagerOption;
+use Concrete\Core\File\Component\Chooser\Option\SavedSearchOption;
+use Concrete\Core\File\Component\Chooser\Option\SearchOption;
+use Concrete\Core\File\Component\Chooser\Option\RecentUploadsOption;
+use Concrete\Core\File\Import\ProcessorManager;
+use Concrete\Core\File\Search\SearchProvider;
+use Concrete\Core\File\Set\Set;
+use Concrete\Core\File\Service\VolatileDirectory;
 use Concrete\Core\File\StorageLocation\StorageLocation;
 use Concrete\Core\File\StorageLocation\StorageLocationInterface;
 use Concrete\Core\Foundation\Service\Provider as ServiceProvider;
@@ -50,23 +62,28 @@ class FileServiceProvider extends ServiceProvider
         });
 
         $this->app->bindIf(Service\VolatileDirectory::class, function (Application $app) {
-            return $app->build(
-                Service\VolatileDirectory::class,
-                [
-                    'parentDirectory' => $app->make('helper/file')->getTemporaryDirectory(),
-                ]
+            return new VolatileDirectory(
+                $app->make(\Illuminate\Filesystem\Filesystem::class),
+                $app->make('helper/file')->getTemporaryDirectory()
             );
         });
 
-        $this->app->bindIf(SanitizerOptions::class, function (Application $app) {
+        $this->app->bind(ProcessorManager::class, function (Application $app) {
             $config = $app->make('config');
-            $options = $app->build(SanitizerOptions::class);
-            $options
-                ->setElementWhitelist($config->get('concrete.file_manager.images.svg_sanitization.allowed_tags'))
-                ->setAttributeWhitelist($config->get('concrete.file_manager.images.svg_sanitization.allowed_attributes'))
-            ;
+            $processorManager = $app->build(ProcessorManager::class);
+            foreach ($config->get('app.import_processors') as $processorClass) {
+                if ($processorClass) {
+                    $processor = $app->make($processorClass);
+                    $processorManager->registerProcessor($processor->readConfiguration($config));
+                }
+            }
 
-            return $options;
+            return $processorManager;
+        });
+
+        $this->app->singleton(ChooserConfigurationInterface::class, function($app) {
+            $configuration = $this->app->make(DefaultConfiguration::class);
+            return $configuration;
         });
     }
 }

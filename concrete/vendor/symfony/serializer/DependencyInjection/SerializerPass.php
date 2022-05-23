@@ -31,8 +31,12 @@ class SerializerPass implements CompilerPassInterface
     private $normalizerTag;
     private $encoderTag;
 
-    public function __construct($serializerService = 'serializer', $normalizerTag = 'serializer.normalizer', $encoderTag = 'serializer.encoder')
+    public function __construct(string $serializerService = 'serializer', string $normalizerTag = 'serializer.normalizer', string $encoderTag = 'serializer.encoder')
     {
+        if (0 < \func_num_args()) {
+            trigger_deprecation('symfony/serializer', '5.3', 'Configuring "%s" is deprecated.', __CLASS__);
+        }
+
         $this->serializerService = $serializerService;
         $this->normalizerTag = $normalizerTag;
         $this->encoderTag = $encoderTag;
